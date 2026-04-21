@@ -489,11 +489,21 @@ async function seed() {
         'blogger'
       );
 
+      const CATEGORIES = ['FASHION', 'FOOD', 'TECH', 'BEAUTY', 'FITNESS', 'TRAVEL', 'GAMING', 'LIFESTYLE'];
+      let cat = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+      if (b.bio.toLowerCase().includes('еда')) cat = 'FOOD';
+      else if (b.bio.toLowerCase().includes('авто')) cat = 'TECH';
+      else if (b.bio.toLowerCase().includes('мод')) cat = 'FASHION';
+      else if (b.bio.toLowerCase().includes('косметик') || b.bio.toLowerCase().includes('бьют')) cat = 'BEAUTY';
+      else if (b.bio.toLowerCase().includes('спорт') || b.bio.toLowerCase().includes('йога')) cat = 'FITNESS';
+      else if (b.bio.toLowerCase().includes('игры') || b.bio.toLowerCase().includes('стрим')) cat = 'GAMING';
+
       const user = await db.User.create({
         email: b.email,
         password: hashedPassword,
         role: 'BLOGGER',
         ig_username: b.ig_username,
+        category: cat,
         avatar_url: avatarUrl || '/uploads/avatars/default.jpg',
         rating: b.rating,
         is_verified: Math.random() > 0.3, // 70% verified

@@ -5,7 +5,14 @@ const { authenticateJWT, requireRole } = require('../middlewares/auth.middleware
 
 // Brands discover bloggers
 router.get('/bloggers', authenticateJWT, requireRole('BRAND'), discoveryController.getBloggerStack);
-router.post('/swipe', authenticateJWT, requireRole('BRAND'), discoveryController.swipeBlogger);
+
+// Bloggers discover brands
+router.get('/brands', authenticateJWT, requireRole('BLOGGER'), discoveryController.getBrandStack);
+
+// Both roles can swipe
+router.post('/swipe', authenticateJWT, discoveryController.swipe);
+
+// View portfolio
 router.get('/blogger/:id', authenticateJWT, discoveryController.getBloggerById);
 
 module.exports = router;

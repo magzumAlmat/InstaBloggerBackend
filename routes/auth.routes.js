@@ -8,6 +8,7 @@ router.post('/register', authController.register);
 router.post('/login', authController.login);
 router.get('/me', authenticateJWT, authController.getMe);
 router.patch('/profile', authenticateJWT, authController.updateProfile);
+router.post('/push-token', authenticateJWT, authController.updatePushToken);
 router.post('/avatar', authenticateJWT, upload.single('avatar'), authController.uploadAvatar);
 
 module.exports = router;

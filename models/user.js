@@ -24,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING,
     ig_username: DataTypes.STRING,
     avatar_url: DataTypes.STRING,
+    category: DataTypes.STRING,
+    push_token: DataTypes.STRING,
     rating: DataTypes.FLOAT,
     is_verified: DataTypes.BOOLEAN,
     bio: DataTypes.TEXT,

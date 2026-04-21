@@ -88,3 +88,15 @@ exports.uploadAvatar = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.updatePushToken = async (req, res) => {
+  try {
+    const { token } = req.body;
+    const user = await User.findByPk(req.user.id);
+    user.push_token = token;
+    await user.save();
+    res.json({ message: 'Push token updated' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

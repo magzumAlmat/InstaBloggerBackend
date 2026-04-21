@@ -12,12 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Message.belongsTo(models.User, { foreignKey: 'sender_id', as: 'sender' });
       models.Message.belongsTo(models.Deal, { foreignKey: 'deal_id', as: 'deal' });
+      models.Message.belongsTo(models.Connection, { foreignKey: 'connection_id', as: 'connection' });
     }
   }
   Message.init({
     content: DataTypes.TEXT,
     sender_id: DataTypes.INTEGER,
-    deal_id: DataTypes.INTEGER
+    deal_id: DataTypes.INTEGER,
+    connection_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Message',

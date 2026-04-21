@@ -1,0 +1,8 @@
+--- /Users/billionare/Documents/DEVELOPMENT/InsaBlogger/controllers/discovery.controller.js
++++ /Users/billionare/Documents/DEVELOPMENT/InsaBlogger/controllers/discovery.controller.js
+@@ -1,4 +1,4 @@
+-const { User, Swipe, sequelize } = require('../models');
++const { User, Swipe, BrowserSwipe, sequelize } = require('../models'); // we will use connection or connections table?
+ const { Op } = require('sequelize');
+ 
+ exports.getBloggerStack = async (req, res) => {
