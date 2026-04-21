@@ -1,63 +1,69 @@
+# 🚀 InsaBlogger: Платформа для инфлюенс-маркетинга
 
-
-
-Вот подробная памятка для запуска проекта и тестирования функционала:
-
-### 1. Запуск Backend-сервера
-Откройте первый терминал и выполните команды:
-```bash
-# Перейдите в папку бекенда
-cd /Users/billionare/Documents/DEVELOPMENT/InsaBlogger
-
-# Убедитесь, что база данных запущена через docker (если еще не запущена)
-docker-compose up -d
-
-# Запустите Node.js сервер
-npm run dev
-```
-
-### 2. Запуск Мобильного приложения (Expo)
-Откройте второй терминал и выполните команды:
-```bash
-# Перейдите в исходную папку Expo-приложения
-cd /Users/billionare/Documents/DEVELOPMENT/InsaBloggerExpo/my-app
-
-# Запустите Expo
-npx expo start
-```
-*Нажмите `i` для запуска в iOS-симуляторе или используйте приложение Expo Go на реальном устройстве, отсканировав QR-код.*
+Инновационная мобильная платформа (iOS/Android), объединяющая рекламодателей и блогеров через систему взаимной авторизации ("Handshake").
 
 ---
 
-### Данные для входа (Пароль для **всех** аккаунтов одинаковый)
-🔑 **Пароль везде:** `Test1234!`
+### 🌟 Ключевые бизнес-процессы
 
-#### 3. Тестовые аккаунты Рекламодателей (Брендов)
-Они создают Офферы (кампании) и свайпают блогеров в поиске (Discover). Выберите любой:
+1. **Взаимный Match (Handshake):**
+   - Бренды и Блогеры могут свайпать друг друга в поиске.
+   - Чат открывается только при обоюдном согласии (мэтче).
+   - Это гарантирует высокий уровень вовлеченности обеих сторон.
 
-Chocofamily: marketing@choco.kz
-Kaspi.kz: pr@kaspi.kz
-Sulpak: brand@sulpak.kz
-Magnum: smm@magnum.kz
-Air Astana: smm@air.astana.kz
-Dodo Pizza: smm@dodo.pizza.kz
-Lamoda: brand@lamoda.kz
+2. **Push-уведомления:**
+   - Мгновенные уведомления о новых лайках, запросах и мэтчах.
+   - Real-time уведомления о новых сообщениях в чате.
 
-#### 4. Тестовые аккаунты Блогеров
-Они откликаются на офферы брендов и видят свои новые метрики (Подписчики, охват, ER). Выберите любой:
+3. **Аналитика для блогеров:**
+   - Подробная Instagram-статистика прямо в профиле (охваты, ER, аудитория).
+   - Портфолио с поддержкой Reels и Фото.
 
-* **Бьюти-блогер (@alina_beauty_kz):** `alina.beauty@gmail.com`
-* **Тревел-блогер (@damir_explores):** `damir.travel@gmail.com`
-* **Фуд-блогер (@madina_foodie):** `madina.food@gmail.com`
-* **Фитнес-тренер (@arman_fit):** `arman.fitness@gmail.com`
-* **Fashion-блогер (@assel_style):** `assel.fashion@gmail.com` 
+4. **Панель Администратора:**
+   - Полный контроль над платформой: статистика пользователей, сделок и категорий.
+   - Мониторинг вовлеченности в реальном времени.
 
-> 💡 **Совет по тестированию:** Откройте симулятор за бренд (например Zara), перейдите во вкладку "Поиск" (Discover) — вы сразу увидите карточки (BloggerCard) блогеров с их метриками. А если зайти с аккаунта блогера во вкладку `Профиль`, вы увидите новый блок «Instagram Статистика» и сможете редактировать её через кнопку "Редактировать профиль".
+---
 
+### 🛠 Как запустить проект
 
+**Backend-сервер:**
+```bash
+cd InsaBlogger
+docker-compose up -d  # Запуск PostgreSQL
+npm run dev           # Запуск Node.js сервера (Порт 3000)
+```
 
+**Expo Приложение:**
+```bash
+cd InsaBloggerExpo/my-app
+npx expo start --clear
+```
 
+---
 
+### 🔑 Тестовые доступы
 
-Email: admin@insablogger.kz
-Password: Admin123!
+**Общий пароль:** `Test1234!`
+
+#### 📊 Панель Администратора (Dashboard)
+- **Логин:** `admin@insablogger.kz`
+- **Пароль:** `Admin123!`
+
+#### 🏢 Бренды (Рекламодатели)
+- **Chocofamily:** `marketing@choco.kz`
+- **Kaspi.kz:** `pr@kaspi.kz`
+- **Dodo Pizza:** `smm@dodo.pizza.kz`
+
+#### 🤳 Блогеры
+- **Beauty (@alina_beauty_kz):** `alina.beauty@gmail.com`
+- **Travel (@damir_explores):** `damir.travel@gmail.com`
+- **Food (@madina_foodie):** `madina.food@gmail.com`
+
+---
+
+### 📈 Стек технологий
+- **Mobile:** React Native, Expo SDK 53, Lucide Icons.
+- **Backend:** Node.js, Express, Sequelize ORM.
+- **Database:** PostgreSQL, Docker.
+- **Infrastrucure:** Expo Push API for Notifications.
