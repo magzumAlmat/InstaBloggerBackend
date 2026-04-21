@@ -16,7 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   PortfolioMedia.init({
     user_id: DataTypes.INTEGER,
     media_url: DataTypes.STRING,
-    media_type: DataTypes.STRING
+    media_type: DataTypes.STRING,
+    title: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    attachments: DataTypes.JSONB
   }, {
     sequelize,
     modelName: 'PortfolioMedia',

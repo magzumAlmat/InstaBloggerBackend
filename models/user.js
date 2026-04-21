@@ -25,7 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     ig_username: DataTypes.STRING,
     avatar_url: DataTypes.STRING,
     rating: DataTypes.FLOAT,
-    is_verified: DataTypes.BOOLEAN
+    is_verified: DataTypes.BOOLEAN,
+    bio: DataTypes.TEXT,
+
+    // ── Instagram metrics (for bloggers) ──
+    followers_count: DataTypes.INTEGER,          // Количество подписчиков
+    stories_views_percent: DataTypes.FLOAT,      // % подписчиков, которые смотрят сторис
+    reels_views_percent: DataTypes.FLOAT,        // % просмотров рилсов
+    likes_percent: DataTypes.FLOAT,              // % лайков от подписчиков
+    reach: DataTypes.INTEGER,                    // Охват — кол-во уникальных людей, увидевших контент
+    impressions: DataTypes.INTEGER,              // Просмотры — общее кол-во просмотров (вкл. повторные)
+    engagement_rate: DataTypes.FLOAT,            // Взаимодействие — % (нажали, зашли, подписались, перешли)
   }, {
     sequelize,
     modelName: 'User',

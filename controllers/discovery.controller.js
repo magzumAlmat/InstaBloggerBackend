@@ -19,7 +19,11 @@ exports.getBloggerStack = async (req, res) => {
           [Op.notIn]: swipedBloggerIds.length > 0 ? swipedBloggerIds : [0] // Handle empty list
         }
       },
-      attributes: ['id', 'email', 'ig_username', 'avatar_url', 'rating'],
+      attributes: [
+        'id', 'email', 'ig_username', 'avatar_url', 'rating', 'bio',
+        'followers_count', 'stories_views_percent', 'reels_views_percent',
+        'likes_percent', 'reach', 'impressions', 'engagement_rate'
+      ],
       include: [{ association: 'portfolio', attributes: ['media_url', 'media_type'] }],
       limit: 10,
       order: sequelize.random() // Randomize the stack like Tinder
@@ -52,5 +56,20 @@ exports.swipeBlogger = async (req, res) => {
     res.status(201).json({ message: `Swiped ${direction}`, swipe });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getBloggerById = async (req, res) => {
+  try {
+    const blogger = await User.findOne({
+      where: { id: req.params.id, role: 'BLOGGER' },
+      attributes: { exclude: ['password'] },
+      include: [{ association: 'portfolio' }]
+    });
+    if (!blogger) return res.status(404).json({ message: 'Блогер не найден' });
+    res.json(blogger);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Ошибка сервера при загрузке профиля' });
   }
 };

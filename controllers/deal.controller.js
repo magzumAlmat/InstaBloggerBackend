@@ -96,3 +96,40 @@ exports.completeDeal = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.getMyDeals = async (req, res) => {
+  try {
+    const { status } = req.query;
+    let where = { blogger_id: req.user.id };
+    if (status) {
+      where.status = status;
+    }
+    const deals = await Deal.findAll({
+      where,
+      include: [{ model: Offer, as: 'offer', include: [{ model: User, as: 'brand', attributes: ['id', 'ig_username'] }] }],
+      order: [['createdAt', 'DESC']]
+    });
+    res.json(deals);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getBrandDeals = async (req, res) => {
+  try {
+    const offers = await Offer.findAll({ where: { brand_id: req.user.id }, attributes: ['id'] });
+    const offerIds = offers.map(o => o.id);
+
+    const deals = await Deal.findAll({
+      where: { offer_id: offerIds },
+      include: [
+        { model: Offer, as: 'offer', attributes: ['id', 'title', 'category'] },
+        { model: User, as: 'blogger', attributes: ['id', 'ig_username', 'avatar_url', 'rating'] }
+      ],
+      order: [['createdAt', 'DESC']]
+    });
+    res.json(deals);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

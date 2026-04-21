@@ -7,6 +7,12 @@ const upload = require('../middlewares/upload');
 // Blogger applies to an offer
 router.post('/apply/:offerId', authenticateJWT, requireRole('BLOGGER'), dealController.applyForOffer);
 
+// Get blogger's own deals
+router.get('/my', authenticateJWT, requireRole('BLOGGER'), dealController.getMyDeals);
+
+// Get brand's deals
+router.get('/brand', authenticateJWT, requireRole('BRAND'), dealController.getBrandDeals);
+
 // Brand accepts blogger
 router.patch('/:id/accept', authenticateJWT, requireRole('BRAND'), dealController.acceptBlogger);
 
