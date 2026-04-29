@@ -1,69 +1,71 @@
-# 🚀 InsaBlogger: Платформа для инфлюенс-маркетинга
+<h1 align="center">⚙️ InstaBlogger API Server</h1>
 
-Инновационная мобильная платформа (iOS/Android), объединяющая рекламодателей и блогеров через систему взаимной авторизации ("Handshake").
+<p align="center">
+  <img src="https://img.shields.io/badge/status-active-success?style=flat-square"/>
+  <img src="https://img.shields.io/badge/type-backend-339933?style=flat-square"/>
+  <img src="https://img.shields.io/github/last-commit/magzumAlmat/InstaBloggerBackend?style=flat-square"/>
+  <img src="https://img.shields.io/github/languages/top/magzumAlmat/InstaBloggerBackend?style=flat-square"/>
+</p>
 
----
-
-### 🌟 Ключевые бизнес-процессы
-
-1. **Взаимный Match (Handshake):**
-   - Бренды и Блогеры могут свайпать друг друга в поиске.
-   - Чат открывается только при обоюдном согласии (мэтче).
-   - Это гарантирует высокий уровень вовлеченности обеих сторон.
-
-2. **Push-уведомления:**
-   - Мгновенные уведомления о новых лайках, запросах и мэтчах.
-   - Real-time уведомления о новых сообщениях в чате.
-
-3. **Аналитика для блогеров:**
-   - Подробная Instagram-статистика прямо в профиле (охваты, ER, аудитория).
-   - Портфолио с поддержкой Reels и Фото.
-
-4. **Панель Администратора:**
-   - Полный контроль над платформой: статистика пользователей, сделок и категорий.
-   - Мониторинг вовлеченности в реальном времени.
+<p align="center"><i>RESTful API backend for the InstaBlogger influencer marketing platform.</i></p>
 
 ---
 
-### 🛠 Как запустить проект
+## 🛠️ Tech Stack
 
-**Backend-сервер:**
+![Node.js](https://img.shields.io/badge/-Node.js-informational?style=flat-square) ![Express](https://img.shields.io/badge/-Express-informational?style=flat-square) ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-informational?style=flat-square) ![Sequelize ORM](https://img.shields.io/badge/-Sequelize_ORM-informational?style=flat-square) ![JWT](https://img.shields.io/badge/-JWT-informational?style=flat-square) ![Multer](https://img.shields.io/badge/-Multer-informational?style=flat-square)
+
+## ✨ Features
+
+- ✅ JWT-based authentication
+- ✅ User CRUD with role management (blogger/brand)
+- ✅ Category-based filtering & discovery
+- ✅ File upload for avatars and media
+- ✅ RESTful API architecture
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (or Python 3.8+ for Python projects)
+- npm or yarn
+- PostgreSQL 14+
+
+
+### Installation
+
 ```bash
-cd InsaBlogger
-docker-compose up -d  # Запуск PostgreSQL
-npm run dev           # Запуск Node.js сервера (Порт 3000)
+# Clone the repository
+git clone https://github.com/magzumAlmat/InstaBloggerBackend.git
+
+# Navigate to the project
+cd InstaBloggerBackend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Run the application
+npm start
 ```
 
-**Expo Приложение:**
-```bash
-cd InsaBloggerExpo/my-app
-npx expo start --clear
-```
+## 🔗 Related Repository
 
----
+| Repository | Link |
+|-----------|------|
+| InstaBloggerExpo | [github.com/magzumAlmat/InstaBloggerExpo](https://github.com/magzumAlmat/InstaBloggerExpo) |
 
-### 🔑 Тестовые доступы
+## 👤 Author
 
-**Общий пароль:** `Test1234!`
+**Almat Magzum** — Full-Stack JavaScript Developer
 
-#### 📊 Панель Администратора (Dashboard)
-- **Логин:** `admin@insablogger.kz`
-- **Пароль:** `Admin123!`
+- GitHub: [@magzumAlmat](https://github.com/magzumAlmat)
+- Email: almat.magzum@gmail.com
+- Location: Almaty, Kazakhstan
 
-#### 🏢 Бренды (Рекламодатели)
-- **Chocofamily:** `marketing@choco.kz`
-- **Kaspi.kz:** `pr@kaspi.kz`
-- **Dodo Pizza:** `smm@dodo.pizza.kz`
+## 📄 License
 
-#### 🤳 Блогеры
-- **Beauty (@alina_beauty_kz):** `alina.beauty@gmail.com`
-- **Travel (@damir_explores):** `damir.travel@gmail.com`
-- **Food (@madina_foodie):** `madina.food@gmail.com`
-
----
-
-### 📈 Стек технологий
-- **Mobile:** React Native, Expo SDK 53, Lucide Icons.
-- **Backend:** Node.js, Express, Sequelize ORM.
-- **Database:** PostgreSQL, Docker.
-- **Infrastrucure:** Expo Push API for Notifications.
+This project is open source and available under the [MIT License](LICENSE).
